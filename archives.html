@@ -1,0 +1,43 @@
+<div id="container">
+    #include('./header.html', {title: '文章归档'})
+    <div class="mid-col">
+        <div class="body-wrap">
+            #for(archive : archives)
+            <section class="archives-wrap">
+                <div class="archive-year-wrap">
+                    <a href="#" class="archive-year">${archive.date_str}</a>
+                </div>
+                <div class="archives">
+                    #for(article : archive.articles)
+                    <article class="archive-article archive-type-post">
+                        <div class="archive-article-inner">
+                            <header class="archive-article-header">
+                                <div class="article-meta">
+                                    <a href="javascript:void(0);" class="archive-article-date">
+                                        <time  itemprop="datePublished"><i class="icon-clock"></i>${created('yyyy-MM-dd')}
+                                        </time>
+                                    </a>
+                                </div>
+                                <h1 itemprop="name">
+                                    <a class="archive-article-title" href="${(permalink())}">${title()}</a>
+                                </h1>
+                                <div class="article-info info-on-right">
+                                    <div class="article-tag tagcloud">
+                                        <i class="icon-price-tags"></i>
+                                        <ul class="article-tag-list">
+                                            <li class="article-tag-list-item"><a class="color3" href="/tags/小事/" style="font-size: 12px;">小事</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </header>
+                        </div>
+                    </article>
+                    #end
+                </div>
+            </section>
+            #end
+        </div>
+    </div>
+</div>
+#include('./particle.html')

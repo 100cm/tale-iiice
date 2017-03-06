@@ -1,0 +1,9 @@
+<div id="container">
+#include('./header.html', {title: '友情链接'})
+<div class="friends-wrap" id="js-friends">
+    #for(link : links)
+    <a target="_blank" class="main-nav-link switch-friends-link" href="${link.slug}">${link.name}</a>
+    #end
+</div>
+
+</div>

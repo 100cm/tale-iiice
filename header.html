@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="${meta_keywords()}"/>
+    <meta name="description" content="${meta_description()}"/>
+    <link rel="shortcut icon" href="${theme_url('/static/img/favicon.png')}"/>
+    <link rel="apple-touch-icon" href="${theme_url('/static/img/apple-touch-icon.png')}"/>
+    <script src="${theme_url('/static/js/main.js')}"></script>
+    <link href="${theme_url('/static/css/style.min.css')}" rel="stylesheet">
+    <title>${head_title()}</title>
+    <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body #if(!is_post) class="bg-grey" #end gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<div class="left-col">
+    <div class="overlay"></div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="${theme_url('/static/img/logo.png')}" class="js-avatar">
+            </a>
+            <hgroup>
+                <h1 class="header-author"><a href="/">${site_title()}</a></h1>
+            </hgroup>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="/">主页</a></li>
+                </ul>
+            </nav>
+            <nav class="header-smart-menu">
+                <a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+                <a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+                <a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+                <a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    #tag social("weibo")
+                    <a class="social weibo" target="blank" href="http://weibo.com/${site_option('social_weibo')}">微博</a>
+                    #end
+
+                    #tag social("zhihu")
+                    <a class="social zhihu" target="blank"
+                       href="https://www.zhihu.com/people/${site_option('social_zhihu')}">知乎</a>
+                    #end
+
+                    <a class="social rss" target="blank" href="/feed">RSS</a>
+
+                    #tag social("github")
+                    <a class="github" target="blank"
+                       href="https://github.com/${site_option('social_github')}">Github</a>
+                    #end
+
+                    #tag social("twitter")
+                    <a class="social twitter" target="blank" href="https://twitter.com/${site_option('social_twitter')}">Twitter</a>
+                    #end
+                </div>
+            </nav>
+        </header>
+    </div>
+</div>
+<div class="tools-col">
+    <ul class="btn-wrap">
+        <li class="" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+        <li data-hook="tools-section-tag" class="chose"><span class="text"></span><i class="icon-price-tags"></i></li>
+        <li data-hook="tools-section-friends" class=""><span class="text">友链</span><i class="icon-link"></i></li>
+        <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    </ul>
+    <div class="tools-wrap">
+        <section class="tools-section tools-section-all">
+
+        </section>
+        <section class="tools-section tools-section-tag chose">
+            <div class="widget tagcloud" id="js-tagcloud">
+                #for(tag : tags())
+                <a href="${site_url('/tag/'+tag.name)}" style="font-size: 12px;" class="color3">${tag.name}</a>
+                #end
+            </div>
+        </section>
+        <section class="tools-section tools-section-friends">
+            <div class="friends-wrap" id="js-friends">
+                #for(link : links())
+                <a target="_blank" class="main-nav-link switch-friends-link" href="${link.slug}">${link.name}</a>
+                #end
+            </div>
+        </section>
+        <section class="tools-section tools-section-me">
+            <div class="aboutme-wrap" id="js-aboutme"></div>
+        </section>
+    </div>
+</div>
+
+

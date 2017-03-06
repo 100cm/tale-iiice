@@ -1,0 +1,44 @@
+<div id="container">
+    #include('./header.html',{home_page:1})
+    <div class="mid-col">
+        #for(article : articles.list)
+        <article class="article article-type-post  animated fadeInLeft" itemscope="" itemprop="blogPost">
+            <div class="article-inner">
+                <input type="hidden" class="isFancy">
+                <header class="article-header">
+                    <h1 itemprop="name">
+                        <a class="article-title" href="${permalink()}">${title()}</a>
+                    </h1>
+                </header>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>${intro(75)}...</p>
+                </div>
+                <div class="article-info article-info-index">
+                    <div class="article-tag tagcloud">
+                        <i class="icon-price-tags"></i>
+                        <ul class="article-tag-list">
+                            <li class="article-tag-list-item"><a class="color3" href="#"
+                                                                 style="font-size: 12px;">${show_tags()}</a></li>
+                        </ul>
+                    </div>
+                    <div class="post-data archive-article-date">
+                        <time datetime="${created('yyyy-MM-dd')}" itemprop="datePublished">发布于 ${created('yyyy-MM-dd')}
+                        </time>
+                        / ${show_categories()} / <a href="#comments">${comments_num('没有评论', '%d 条评论')}</a> /
+                        ${hits()}浏览
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </article>
+        #end
+        <div class="lists-navigator clearfix">
+            #call pageNav(articles,'←','→','page')
+        </div>
+    </div>
+    #include('./footer.html')
+</div>
+#include('./particle.html')
+
+
+

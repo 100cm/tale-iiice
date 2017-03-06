@@ -1,0 +1,44 @@
+<div id="container">
+    <div class="mid-col">
+        <nav id="mobile-nav">
+            <div class="overlay">
+                <div class="slider-trigger"><i class="icon-list"></i></div>
+                <h1 class="header-author js-mobile-header hide">icepoint°c冰</h1>
+            </div>
+            <div class="intrude-less">
+                <header id="header" class="inner">
+                    <div class="profilepic">
+                        <img src="null" class="js-avatar">
+                    </div>
+                    <hgroup>
+                        <h1 class="header-author">icepoint°c冰</h1>
+                    </hgroup>
+                    <nav class="header-menu">
+                        <ul>
+                            <li><a href="/">主页</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <div class="social">
+                            <a class="github" target="_blank" href="https://github.com/icepoint0"
+                               title="github">github</a>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        </nav>
+        <article class="main-content post-page">
+            <div class="post-header">
+                <h1 class="post-title" itemprop="name headline">${title()}</h1>
+                <div class="post-data">
+                    <time datetime="${created('yyyy-MM-dd')}" itemprop="datePublished">发布于 ${created('yyyy-MM-dd')}
+                    </time>
+                </div>
+            </div>
+            <div id="post-content" class="post-content">${show_content()}</div>
+        </article>
+        <!--#include('./comments.html')-->
+    </div>
+</div>
+
+
